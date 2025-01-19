@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import "./Form.css";
-import { useNavigate } from "react-router-dom"
+
 
 const HoroscopeForm = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ const HoroscopeForm = () => {
     city: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; type: any; checked: any; }; }) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -23,7 +23,7 @@ const HoroscopeForm = () => {
     }));
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async(e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
       // Replace with your actual API endpoint
